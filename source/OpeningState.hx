@@ -7,8 +7,6 @@ import flixel.util.typeLimit.NextState;
 
 import ui.PerfTracker;
 
-import util.MathUtil;
-
 class OpeningState extends FlxState
 {
     public var nextState:NextState;
@@ -30,9 +28,9 @@ class OpeningState extends FlxState
 
         FlxG.fixedTimestep = false;
 
-        FlxG.updateFramerate = MathUtil.maxInt(FlxG.stage.window.displayMode.refreshRate, 144);
+        FlxG.updateFramerate = Std.int(Math.max(FlxG.stage.window.displayMode.refreshRate, 144.0));
 
-        FlxG.drawFramerate = MathUtil.maxInt(FlxG.stage.window.displayMode.refreshRate, 144);
+        FlxG.drawFramerate = Std.int(Math.min(FlxG.stage.window.displayMode.refreshRate, 144.0));
 
         FlxG.mouse.visible = false;
 
